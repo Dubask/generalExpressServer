@@ -1,4 +1,4 @@
-import { Schema, model, Types } from "mongoose";
+import { Schema, model, Types } from 'mongoose'
 
 const NoteSchema = new Schema({
   title: String,
@@ -7,9 +7,9 @@ const NoteSchema = new Schema({
   book: Types.ObjectId,
   image: String,
   tags: [String],
-});
-NoteSchema.index({ title: "text", description: "text", tags: "text" });
-const Note = model("Note", NoteSchema);
-Note.createIndexes();
+})
+NoteSchema.index({ title: 'text', description: 'text', tags: 'text' })
+const Note = model('Note', NoteSchema)
+Note.createIndexes()
 
-module.exports = Note;
+module.exports = Note

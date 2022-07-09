@@ -1,4 +1,4 @@
-import { Schema, model, Types } from "mongoose";
+import { Schema, model, Types } from 'mongoose'
 
 const AnalyticsSchema = new Schema({
   id: Types.ObjectId,
@@ -7,6 +7,6 @@ const AnalyticsSchema = new Schema({
   date_finished: Date,
   time_to_finish: String,
   book: Types.ObjectId,
-});
+})
 
-module.exports = model("Analytics", AnalyticsSchema);
+module.exports = model('Analytics', AnalyticsSchema)

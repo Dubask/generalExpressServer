@@ -1,4 +1,4 @@
-import { Schema, model, Types, set } from "mongoose";
+import { Schema, model, Types, set } from 'mongoose'
 
 const ItemSchema = new Schema({
   title: String,
@@ -8,14 +8,14 @@ const ItemSchema = new Schema({
   analytics: [Types.ObjectId],
   book_notes: [Types.ObjectId],
   tags: [String],
-});
+})
 
 ItemSchema.index(
-  { title: "text", description: "text", tags: "text" },
-  { background: true, name: "titleSearch" }
-);
+  { title: 'text', description: 'text', tags: 'text' },
+  { background: true, name: 'titleSearch' }
+)
 
 // ItemSchema.index({ title: 1 });
-const Item = model("Item", ItemSchema);
+const Item = model('Item', ItemSchema)
 
-export default Item;
+export default Item
