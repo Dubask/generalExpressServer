@@ -5,18 +5,17 @@ import { logger } from '../utils/errors/logger';
 import status from 'statuses';
 import UserModel from '../db/models/User';
 
-const AuthController = express.Router();
+const UserController = express.Router();
 
-AuthController.post('/register', async (req, res, next) => {
+UserController.get('/', async (req, res, next) => {
   try {
-    const { username, password, email } = req.body;
-    const user = await UserModel.create({ username, password, email });
+    const users = await UserModel.find({});
 
-    res.status(200).json({ user });
+    res.status(200).json({ users });
   } catch (error) {
     logger.error(error);
     next(error);
   }
 });
 
-export default AuthController;
+export default UserController;
