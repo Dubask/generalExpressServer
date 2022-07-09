@@ -1,34 +1,36 @@
-import express from 'express'
-import dotenv from 'dotenv'
-import cors from 'cors'
-import mongoose from 'mongoose'
-import BookController from './controllers/ItemController'
-import handleErrors from './middlewares/handleErrors'
-import status from 'statuses'
+import express from 'express';
+import dotenv from 'dotenv';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import BookController from './controllers/ItemController';
+import handleErrors from './middlewares/handleErrors';
+import status from 'statuses';
+import AuthController from './controllers/AuthController';
 
-dotenv.config()
+dotenv.config();
 
-const app = express()
+const app = express();
 
-mongoose.connect(process.env.MONGO_DB_URI)
-const db = mongoose.connection
-db.on('error', () => console.log('DB connection error'))
-db.once('open', () => console.log('db connect'))
+mongoose.connect(process.env.MONGO_DB_URI);
+const db = mongoose.connection;
+db.on('error', () => console.log('DB connection error'));
+db.once('open', () => console.log('db connect'));
 
 // app.use(cors);
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // ROUTES
-app.use('/book', BookController)
-app.use('/book-notes', (req, res) => {})
+app.use('/api/book', BookController);
+app.use('/api/book-notes', (req, res) => {});
+app.use('/api/auth', AuthController);
 app.get('*', function (req, res, next) {
-  const notFound = status(404)
+  const notFound = status(404);
 
-  next(notFound)
-})
+  next(notFound);
+});
 
 // MIDDLEWARES
-app.use(handleErrors)
+app.use(handleErrors);
 
-export default app
+export default app;
