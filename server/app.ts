@@ -28,7 +28,7 @@ app.use('/api/auth', AuthController);
 app.use('/api/users', UserController);
 app.use('/api/book', BookController);
 app.use('/api/book-notes', (req, res) => {});
-app.get('*', function (req, res, next) {
+app.get('*', (req, res, next) => {
   const notFound = status(404);
 
   next(notFound);
