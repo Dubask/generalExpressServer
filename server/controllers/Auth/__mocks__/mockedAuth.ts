@@ -11,3 +11,5 @@ export const fakeSavedUser = {
   _id: '123',
   __v: 0,
 };
+
+export const fakePassword = '123';

@@ -2,7 +2,10 @@ import mongoose from 'mongoose';
 import request from 'supertest';
 import app from '../app';
 import UserModel from '../db/models/User';
-import { fakeSavedUser, fakeUser } from '../__mocks__/AuthController';
+import {
+  fakeSavedUser,
+  fakeUser,
+} from '../controllers/Auth/__mocks__/mockedUsers';
 
 describe('UserController', () => {
   afterAll(() => {
