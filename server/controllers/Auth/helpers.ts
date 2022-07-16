@@ -5,7 +5,6 @@ import fs from 'fs';
 import path from 'path';
 import { Request, Response } from 'express';
 
-// import jwtPublicKey = path.resolve('') + '/keys/public_key.pem';
 type ExpiryJwtProps = '30d' | '1d';
 type Token = {
   name: string;
